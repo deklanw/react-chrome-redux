@@ -1,6 +1,5 @@
 import * as redux from 'redux';
 
-export type DiffStrategy = (oldObj, newObj) => any;
 export type PatchStrategy = (oldObj, patch) => any;
 
 export class Store<S = any, A extends redux.Action = redux.Action> {
@@ -14,8 +13,7 @@ export class Store<S = any, A extends redux.Action = redux.Action> {
     extensionId?: string,
     serializer?: Function,
     deserializer?: Function,
-    diffStrategy: DiffStrategy,
-    patchStrategy: PatchStrategy
+    patchStrategy?: PatchStrategy
   });
 
   /**
